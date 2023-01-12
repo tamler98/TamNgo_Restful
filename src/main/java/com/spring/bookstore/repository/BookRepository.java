@@ -1,6 +1,6 @@
-package repository;
+package com.spring.bookstore.repository;
 
-import entity.BookEntity;
+import com.spring.bookstore.entity.BookEntity;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -19,7 +19,10 @@ public interface BookRepository extends CrudRepository<BookEntity, Integer> {
     List<BookEntity> findByBookDetailsPriceGreaterThanEqual(int price);
 
     List<BookEntity> findByNameContaining(String name);
+    List<BookEntity> findByNameContainingOrAuthorContaining(String searchInput, String searchInput1);
 
     @Query (value = "update book set name = 'Spring Book' where id = ?1", nativeQuery = true)
     BookEntity updateBookById(int id);
+
+
 }

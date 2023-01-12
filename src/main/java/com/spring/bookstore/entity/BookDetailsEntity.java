@@ -1,4 +1,4 @@
-package entity;
+package com.spring.bookstore.entity;
 
 
 import javax.persistence.*;

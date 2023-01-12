@@ -1,4 +1,4 @@
-package entity;
+package com.spring.bookstore.entity;
 
 import javax.persistence.*;
 
@@ -7,7 +7,6 @@ import javax.persistence.*;
 public class BookEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     @Column (name = "id")
     private int id;
 
@@ -29,7 +28,7 @@ public class BookEntity {
 
     }
 
-    public int getId(int i) {
+    public int getId() {
         return id;
     }
 
