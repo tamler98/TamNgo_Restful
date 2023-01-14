@@ -18,6 +18,9 @@
       <li class="nav-item active">
         <a class="nav-link" href="newBook">Add book</a>
       </li>
+      <li class="nav-item active">
+         <a class="nav-link" href="newCategory">Add Category</a>
+       </li>
     </ul>
 </nav>
 </div>

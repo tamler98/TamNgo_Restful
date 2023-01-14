@@ -82,9 +82,7 @@ public class BookController {
 
     @RequestMapping(value = "/edit/updateBook", method = RequestMethod.POST)
     public String updateBook(@ModelAttribute BookEntity book) {
-        System.out.println("a");
         bookRepository.save(book);
-        System.out.println("Success");
         return "redirect:/";
     }
 
