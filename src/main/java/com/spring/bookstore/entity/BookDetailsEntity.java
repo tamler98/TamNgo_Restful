@@ -1,6 +1,8 @@
 package com.spring.bookstore.entity;
 
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
@@ -17,12 +19,13 @@ public class BookDetailsEntity {
     private String isbn;
 
     @Column(name = "price")
-    private double price;
+    private int price;
 
     @Column(name = "numberOfPage")
     private int numberOfPage;
 
     @Column(name = "publishDate")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate publishDate;
 
     @OneToOne(mappedBy = "bookDetails")
@@ -48,11 +51,11 @@ public class BookDetailsEntity {
         this.isbn = isbn;
     }
 
-    public double getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
@@ -80,5 +83,16 @@ public class BookDetailsEntity {
         this.book = book;
     }
 
+    @Override
+    public String toString() {
+        return "BookDetailsEntity{" +
+                "id=" + id +
+                ", isbn='" + isbn + '\'' +
+                ", price=" + price +
+                ", numberOfPage=" + numberOfPage +
+                ", publishDate=" + publishDate +
+                ", book=" + book +
+                '}';
+    }
 }
 

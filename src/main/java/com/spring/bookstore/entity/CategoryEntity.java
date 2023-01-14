@@ -8,17 +8,18 @@ public class CategoryEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    @Column(name ="id")
+    @Column(name = "id")
     private int id;
 
-    @Column(name ="name")
+    @Column(name = "name")
     private String name;
 
-    @Column(name ="description")
+    @Column(name = "description")
     private String description;
 
-    @OneToMany (mappedBy = "category", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "category")
     private List<BookEntity> bookEntityList;
+
     public CategoryEntity() {
 
     }
@@ -55,4 +56,3 @@ public class CategoryEntity {
         this.bookEntityList = bookEntityList;
     }
 }
-

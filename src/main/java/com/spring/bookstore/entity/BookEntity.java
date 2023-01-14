@@ -17,7 +17,7 @@ public class BookEntity {
     private String author;
 
     @ManyToOne
-    @JoinColumn (name = "category")
+    @JoinColumn (name = "categoryId")
     private CategoryEntity category;
 
     @OneToOne(cascade = {CascadeType.ALL})
@@ -71,11 +71,11 @@ public class BookEntity {
     @Override
     public String toString() {
         return "BookEntity{" +
-                "Id=" + id +
-                ", Name='" + name + '\'' +
-                ", Author='" + author + '\'' +
-                ", PublishDate= " + bookDetails.getPublishDate() +
-                ", Price= " + bookDetails.getPrice() +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", author='" + author + '\'' +
+                ", category=" + category +
+                ", bookDetails=" + bookDetails +
                 '}';
     }
 }
