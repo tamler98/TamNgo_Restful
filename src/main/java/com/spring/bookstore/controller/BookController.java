@@ -65,23 +65,25 @@ public class BookController {
     @RequestMapping(value = "/newBook", method = POST, produces = "text/plain;charset=UTF-8")
     public String saveBook(BookEntity book) {
         bookRepository.save(book);
+        System.out.println("Success");
         return "redirect:/";
     }
 
     @RequestMapping(value = "/edit/{id}", method = GET)
     public String showEditBook(Model model, @PathVariable int id) {
-        model.addAttribute("book", bookRepository.findById(id));
+        model.addAttribute("book", bookRepository.getByID(id));
         model.addAttribute("msg", "Update book information");
         model.addAttribute("type", "update");
-        model.addAttribute("action", "/updateBook");
+        model.addAttribute("action", "updateBook");
 
         setCategoryDropDownList(model);
         return "book";
     }
 
-    @RequestMapping(value = "/updateBook", method = POST, produces = "text/plain;charset=UTF-8")
+    @RequestMapping(value = "/updateBook", method = {RequestMethod.GET,RequestMethod.PUT})
     public String updateBook(@ModelAttribute BookEntity book) {
         bookRepository.save(book);
+        System.out.println("Success");
         return "redirect:/";
     }
 

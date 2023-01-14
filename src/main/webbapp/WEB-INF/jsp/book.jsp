@@ -7,8 +7,8 @@
 <body>
     <div class="container" style="margin-top: 60px;">
         <div class="col-md-4">
-            <form:form action="${action}" method="post" modelAttribute="book">
-                <field-set class="scheduler-border">
+            <form:form action="${action}" method="POST" modelAttribute="book">
+                <fieldset class="scheduler-border">
                     <legend class="scheduler-border">
                         <c:out value="${msg}" />
                     </legend>
@@ -16,9 +16,9 @@
                         <div class="form-group">
                             <label class="control-label">ID</label>
                             <form:input path="id" type="text" class="form-control" id="id" placeholder="ID"
-                                disabled="true" />
-                            <form:hidden path="id" />
-                            <form:hidden path="bookDetails.id" />
+                                disabled="true"/>
+                            <form:hidden path="id"/>
+                            <form:hidden path="bookDetails.id"/>
                         </div>
                     </c:if>
                     <div class="form-group">
@@ -59,7 +59,7 @@
                     </div>
                     <br>
                     <button class="btn- btn-primary" type="submit">Save</button>
-                </field-set>
+                </fieldset>
             </form:form>
         </div>
     </div>

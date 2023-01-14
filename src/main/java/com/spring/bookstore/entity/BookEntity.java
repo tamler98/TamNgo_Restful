@@ -16,7 +16,7 @@ public class BookEntity {
     @Column (name = "author")
     private String author;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn (name = "categoryId")
     private CategoryEntity category;
 

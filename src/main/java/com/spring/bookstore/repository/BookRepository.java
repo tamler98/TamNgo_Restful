@@ -21,8 +21,8 @@ public interface BookRepository extends CrudRepository<BookEntity, Integer> {
     List<BookEntity> findByNameContaining(String name);
     List<BookEntity> findByNameContainingOrAuthorContaining(String searchInput, String searchInput1);
 
-    @Query (value = "update book set name = 'Spring Book' where id = ?1", nativeQuery = true)
-    BookEntity updateBookById(int id);
+    @Query (value = "select * from book where id =?1", nativeQuery = true)
+    BookEntity getByID(int id);
 
 
 }

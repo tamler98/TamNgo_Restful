@@ -4,27 +4,28 @@ package com.spring.bookstore.entity;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "bookDetails")
+@Table(name="bookdetails")
 public class BookDetailsEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
-    @Column(name = "id")
+    @Column (name="id")
     private int id;
 
-    @Column(name = "isbn")
+    @Column (name="isbn")
     private String isbn;
 
-    @Column(name = "price")
+    @Column (name="price")
     private int price;
 
-    @Column(name = "numberOfPage")
+
+    @Column (name="numberOfPage")
     private int numberOfPage;
 
-    @Column(name = "publishDate")
+    @Column (name="publishDate")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate publishDate;
 
@@ -32,7 +33,6 @@ public class BookDetailsEntity {
     private BookEntity book;
 
     public BookDetailsEntity() {
-
     }
 
     public int getId() {
@@ -82,17 +82,8 @@ public class BookDetailsEntity {
     public void setBook(BookEntity book) {
         this.book = book;
     }
-
     @Override
     public String toString() {
-        return "BookDetailsEntity{" +
-                "id=" + id +
-                ", isbn='" + isbn + '\'' +
-                ", price=" + price +
-                ", numberOfPage=" + numberOfPage +
-                ", publishDate=" + publishDate +
-                ", book=" + book +
-                '}';
+        return "Price = "+ price;
     }
 }
-
