@@ -1,20 +1,26 @@
 package com.spring.bookstore.entity;
+import com.spring.bookstore.entity.BookDetailsEntity;
+import com.spring.bookstore.entity.CategoryEntity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @Entity
-@Table (name = "book")
+@Table(name = "book")
 public class BookEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column (name = "id")
     private int id;
 
+    @NotBlank(message = "Please insert Name")
     @Column (name = "name")
     private String name;
 
+    @NotBlank(message = "Please insert Author")
     @Column (name = "author")
     private String author;
+
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn (name = "categoryId")
