@@ -1,5 +1,6 @@
 package com.spring.bookstore.entity;
 
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
@@ -18,11 +19,8 @@ public class BookEntity {
     @NotBlank(message = "Please insert Author")
     @Column (name = "author")
     private String author;
-
-
-    public BookEntity() {
-
-    }
+    @Column(name = "price")
+    private double price;
 
     public int getId() {
         return id;
@@ -48,6 +46,13 @@ public class BookEntity {
         this.author = author;
     }
 
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
 }
 
 
