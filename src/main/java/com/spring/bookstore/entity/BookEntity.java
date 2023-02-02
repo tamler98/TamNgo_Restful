@@ -1,6 +1,4 @@
 package com.spring.bookstore.entity;
-import com.spring.bookstore.entity.BookDetailsEntity;
-import com.spring.bookstore.entity.CategoryEntity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -21,14 +19,6 @@ public class BookEntity {
     @Column (name = "author")
     private String author;
 
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn (name = "categoryId")
-    private CategoryEntity category;
-
-    @OneToOne(cascade = {CascadeType.ALL})
-    @PrimaryKeyJoinColumn
-    private BookDetailsEntity bookDetails;
 
     public BookEntity() {
 
@@ -58,32 +48,6 @@ public class BookEntity {
         this.author = author;
     }
 
-    public CategoryEntity getCategory() {
-        return category;
-    }
-
-    public void setCategory(CategoryEntity category) {
-        this.category = category;
-    }
-
-    public BookDetailsEntity getBookDetails() {
-        return bookDetails;
-    }
-
-    public void setBookDetails(BookDetailsEntity bookDetails) {
-        this.bookDetails = bookDetails;
-    }
-
-    @Override
-    public String toString() {
-        return "BookEntity{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", author='" + author + '\'' +
-                ", category=" + category +
-                ", bookDetails=" + bookDetails +
-                '}';
-    }
 }
 
 
