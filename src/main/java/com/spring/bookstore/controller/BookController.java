@@ -45,24 +45,8 @@ public class BookController {
 
     @RequestMapping(method = RequestMethod.POST)
     public Object addBook(@RequestBody BookEntity newBook) {
-        BookEntity foundBook = null;
-        for(BookEntity bookEntity: bookRepository.findAll()) {
-            if (bookEntity.getId() == newBook.getId()) {
-                foundBook = bookEntity;
-                break;
-            }
-        }
-        if(foundBook == null) {
             BookEntity result = bookRepository.save(newBook);
             return result;
-        }else{
-            Map<String, String> error = new HashMap<String, String>() {
-                {
-                    put("error", " Book ID is exist");
-                }
-            };
-            return error;
-        }
     }
 
     @PutMapping()
